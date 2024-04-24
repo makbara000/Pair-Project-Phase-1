@@ -1,0 +1,34 @@
+{
+  "name": "pairproject-fintech-sintetik",
+  "version": "1.0.0",
+  "description": "fintech to buy investments",
+  "main": "text.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makbara000/Pair-Project-Phase-1.git"
+  },
+  "keywords": [
+    "fintechApp",
+    "mvc",
+    "sequelize",
+    "express"
+  ],
+  "author": "akbar&hasbi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makbara000/Pair-Project-Phase-1/issues"
+  },
+  "homepage": "https://github.com/makbara000/Pair-Project-Phase-1#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
