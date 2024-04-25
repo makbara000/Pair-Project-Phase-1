@@ -1,11 +1,10 @@
 <%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
-<div class="login-form">
-  <h2 class="text-center">Welcome ADMIN</h2>
-  <a href=""><button>Add Stock Product</button></a><br>
+  <h2 class="text-center">Welcome ADMIN</h2><br>
+  <a href="/admin/addStock" class="text-center"><button>Add Stock Product</button></a><br><br>
   <table>
     <tr>
       <th>No</th>
-      <th>Stock Name</th>
+      <th>Stock Name</th><br>
       <th>Description</th>
       <th>Price</th>
       <th>code</th>
@@ -39,13 +38,12 @@
           <%= e.Lot %>
         </td>
         <td>
-          <a href="/editStock/<%= e.id %>"><button>Edit</button></a>
-          <a href="/deleteStock/<%= e.id %>"><button>Delete</button></a>
+          <a href="/admin/editStock/<%= e.id %>"><button>Edit</button></a>
+          <a href="/admin/deleteStock/<%= e.id %>"><button>Delete</button></a>
         </td>
       </tr>
     <% }) %>
   </table>
-</div>
 
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

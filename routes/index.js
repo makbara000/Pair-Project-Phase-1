@@ -54,11 +54,13 @@ router.post('/user/edit/profile/:id');
 router.use(adminMiddleware)
 //|--user:-admin--------|
 router.get('/admin', AdminController.adminHome);//home adminPage
-router.get('/admin/addStock');//getFormAddStock
-router.post('/admin/addStock');//postFormAddStock
-router.get("/admin/editStock/:id");//getEdit;
-router.post("/admin/editStock/:id");//postEdit
-router.get("/admin/deleteStock/:id");//destroyProduct;
+router.get('/admin/addStock', AdminController.getAddStockProduct);//getFormAddStock
+router.post('/admin/addStock', AdminController.postAddStockProduct);//postFormAddStock
+
+router.get("/admin/editStock/:id", AdminController.getEditStockProduct);//getEdit;
+router.post("/admin/editStock/:id", AdminController.postAddStockProduct);//postEdit
+
+router.get("/admin/deleteStock/:id", AdminController.deleteStockProduct);//destroyProduct;
 //-----------
 
 module.exports=router;

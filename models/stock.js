@@ -3,6 +3,7 @@ const {
   Model
 } = require('sequelize');
 const formatCurrency = require('../helper/formatCurrency');
+const { generateStockCode } = require('../helper/randomStockCode');
 module.exports = (sequelize, DataTypes) => {
   class Stock extends Model {
     /**
@@ -62,13 +63,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       validate:{
         notEmpty:{
-          msg: "Type can't be empty"
+          msg: "Lot can't be empty"
         }
       }
     }
   }, {
     sequelize,
     modelName: 'Stock',
+  });
+  Stock.beforeCreate( (Stock, options) => {
+    Stock.code = generateStockCode()
   });
   return Stock;
 };

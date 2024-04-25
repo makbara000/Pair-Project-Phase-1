@@ -1,0 +1,17 @@
+
+function generateRandomAlphabet(length) {
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    const randIndex = Math.floor(Math.random() * alphabet.length);
+    result += alphabet.charAt(randIndex);
+  }
+  return result;
+}
+
+function generateStockCode() {
+  const length = Math.floor(Math.random() * 2) + 3; 
+  return generateRandomAlphabet(length);
+}
+
+module.exports = {generateStockCode}
