@@ -29,16 +29,19 @@ class UserController {
     }
     static async getCart(req, res){
         try {
-            let unpaidStock = await UserStock.findAll({
+            let unpaidStock = await UserStock.findAll({    
                 include: [
                     {
                         model: Stock,
                     }
                 ],
                 where: {UserId:req.session.user.id}
-            })
-            // res.send({unpaidStock})
-            res.render("Cart", {unpaidStock, formatCurrency: formatCurrency})
+            });
+
+            unpaidStock.paidLot = true,
+            console.log(unpaidStock)
+            res.send({unpaidStock})
+            // res.render("Cart", {unpaidStock, formatCurrency: formatCurrency})
         } catch (error) {
             res.send(error)
             console.log(error)
@@ -79,7 +82,13 @@ class UserController {
         }
     }
     static async payLotCart(req, res){
-        
+        try {
+            let {id} = req.params
+            let {tI, StockId} = req.query
+        } catch (error) {
+            res.send(error)
+            console.log(error)
+        }
     }
     
 }

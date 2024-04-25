@@ -36,7 +36,7 @@
         <th>
           <a href="/cart/increase/<%= e.id %>"><button>+1 Lot</button></a>
           <a href="/cart/decrease/<%= e.id %>"><button>-1 Lot</button></a>
-          <a href="/cart/buy/<%= e.id %>"><button>Pay</button></a>
+          <a href="/cart/buy/<%= e.id %>?tI=<%= e.totalInvestment %>&StockId=<%= e.Stock.id %>"><button>Pay</button></a>
         </th>
       </tr>
     <% }) %>
