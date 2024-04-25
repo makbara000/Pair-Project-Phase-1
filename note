@@ -7,8 +7,8 @@ npx sequelize-cli model:create --name Stock --attributes name:string,description
 npx sequelize-cli model:create --name UserStock --attributes StockId:integer,UserId:integer,totalInvestment:integer,value:integer
 npx sequelize-cli seed:generate --name seed-stocks
 
-
-
+npx sequelize-cli seed:generate --name seed-UserAdmin
+npx sequelize migration:create --name add-column-Lot-on-table-Stock
 
 Stocks.type:
 -Finance, Health, Retail, Misc
