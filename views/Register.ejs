@@ -1,14 +1,14 @@
 <%- include("headers/NavLogSign", {title:"SINTETIK login"}) %>
 <div class="register-form">
   <h2 class="text-center">Register</h2>
-  <form>
+  <form action="/register" method="post">
     <div class="form-group">
       <label for="email">Email</label>
       <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
     </div>
     <br>
     <hr>
@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label for="birthDate">Birth Date</label>
-      <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="Enter birthDate">
+      <input type="date" class="form-control" id="birthDate" name="birthDate" placeholder="Enter birthDate">
     </div>
     <div class="form-group">
       <label for="gender">Gender</label><br>
