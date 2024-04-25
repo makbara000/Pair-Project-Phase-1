@@ -3,24 +3,24 @@ const logMiddleware = require('../middlewares/log.middleware');
 const router = require('express').Router();
 
 
-router.use(logMiddleware)
 router.get('/', (req, res) => {
-    res.render('Login')
-  });
+  res.render('Home')
+});
 
 router.get('/register', (req, res) => {
-    res.render('register')
-  });
+  res.render('Register')
+});
 router.post('/register', (req, res) => {
-    res.render('Login')
-  });
+  res.render('Register')
+});
 
 router.get('/login', (req, res) => {
-    res.render('Login')
-  });
+  res.render('Login')
+});
 router.post('/login', (req, res) => {
-    res.render('Login')
-  });
+  res.render('Login')
+});
+router.use(logMiddleware)
 
 router.get('/users', (req, res) => {
     res.render('users')

@@ -1,4 +1,4 @@
-<%- include("headers/NavLogSign", {title:"SINTETIK login"}) %>
+<%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
 <div class="login-form">
   <h2 class="text-center">Register</h2>
   <form>
@@ -10,7 +10,27 @@
       <label for="password">Password</label>
       <input type="password" class="form-control" id="password" placeholder="Enter password">
     </div>
-    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+    <br>
+    <hr>
+    <br>
+    <div class="form-group">
+      <label for="Name">Name</label>
+      <input type="text" class="form-control" id="Name" name="name" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+      <label for="birthDate">Birth Date</label>
+      <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="Enter birthDate">
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <input type="radio" class="form-control" id="gender" value="Male" name="gender"><label for="">Male</label>
+      <input type="radio" class="form-control" id="gender" value="Female" name="gender"><label for="">Female</label>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number">
+    </div><br>
+    <button type="submit" class="btn btn-primary btn-block">Register</button>
   </form>
 </div>
 
