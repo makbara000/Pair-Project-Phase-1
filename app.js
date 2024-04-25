@@ -7,8 +7,12 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended:true}))
 app.use(session({
   resave: false, // don't save session if unmodified
-  saveUninitialized: true, // don't create session until something stored
-  secret: 'keyboard cat'
+  saveUninitialized: false, // don't create session until something stored
+  secret: 'keyboard cat',
+  cookie: {
+    secure: false,
+    sameSite: true, 
+  },
 }));
 app.use(require('./routes'))
 

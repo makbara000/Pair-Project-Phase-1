@@ -42,9 +42,9 @@ router.get("/logout", Controller.logOut);
 router.get('/', UserController.getUserHome); //user home, showStocklist
 router.get('/cart', UserController.getCart);//show stock to be paid table (can adjust amount) and paid Stock
 
-router.get('/addToCart/:id');
-router.get('/cart/increase/:id');
-router.get('/cart/decrease/:id');
+router.get('/addToCart/:id', UserController.addToCart);
+router.get('/cart/increase/:id', UserController.increaseLotCart);
+router.get('/cart/decrease/:id', UserController.decreaseLotCart);
 router.post('/cart/buy/:id');
 
 router.get('/user/edit/profile/:id');

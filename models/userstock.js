@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     StockId: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER,
     totalInvestment: DataTypes.INTEGER,
-    value: DataTypes.INTEGER
+    value: DataTypes.INTEGER,
+    paidLot: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'UserStock',
