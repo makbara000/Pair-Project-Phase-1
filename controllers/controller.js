@@ -1,6 +1,7 @@
 
-const { compareSync } = require("bcryptjs")
+const session = require('express-session');
 const {User, UserDetail, UserStock, Stock} = require("../models")
+const { compare } = require("../helper/password")
 
 class Controller {
     static async getRegisterForm(req, res){
@@ -44,7 +45,7 @@ class Controller {
         try {
             let user = await User.findOne({where: {email}})
             if(!user) throw new Error("invalid user")
-            let passwordMatch = compareSync(password, user.password)
+            let passwordMatch = compare(password, user.password)
             if(!passwordMatch) throw new Error("Invalid password")
             req.session.user = user.toJSON();
             // console.log(req.session.user)
@@ -56,8 +57,10 @@ class Controller {
         }
     }
     static async logOut(req, res){
-        req.session.destroy((err))
         try {
+            await req.session.destroy()
+            console.log("Lewat")
+            res.redirect("/")
         } catch (error) {
             res.send(error)
             console.log(error)

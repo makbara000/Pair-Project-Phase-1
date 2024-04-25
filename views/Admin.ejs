@@ -1,7 +1,7 @@
 <%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
 <div class="login-form">
-  <h2 class="text-center">Home</h2>
-  <a href="/cart"><button>Go to cart</button></a><br><br>
+  <h2 class="text-center">Welcome ADMIN</h2>
+  <a href=""><button>Add Stock Product</button></a><br>
   <table>
     <tr>
       <th>No</th>
@@ -39,7 +39,8 @@
           <%= e.Lot %>
         </td>
         <td>
-          <a href="/addToCart/<%= e.id %>"><button>add to cart</button></a>
+          <a href="/editStock/<%= e.id %>"><button>Edit</button></a>
+          <a href="/deleteStock/<%= e.id %>"><button>Delete</button></a>
         </td>
       </tr>
     <% }) %>

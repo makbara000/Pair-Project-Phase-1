@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const formatCurrency = require('../helper/formatCurrency');
 module.exports = (sequelize, DataTypes) => {
   class Stock extends Model {
     /**
@@ -11,6 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+    }
+    get money(){
+      return formatCurrency(this.price)
     }
   }
   Stock.init({

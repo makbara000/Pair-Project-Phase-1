@@ -1,7 +1,8 @@
 'use strict';
 
 const { hashSync } = require('bcryptjs');
-const {Model
+const {
+  Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
@@ -13,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     
     static associate(models) {
       // define association here
+      User.hasOne(models.UserDetail,{
+        foreignKey:"UserId",
+      });
+      User.hasMany(models.UserStock)
     }
   }
   User.init({
