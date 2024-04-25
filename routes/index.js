@@ -45,7 +45,7 @@ router.get('/cart', UserController.getCart);//show stock to be paid table (can a
 router.get('/addToCart/:id', UserController.addToCart);
 router.get('/cart/increase/:id', UserController.increaseLotCart);
 router.get('/cart/decrease/:id', UserController.decreaseLotCart);
-router.post('/cart/buy/:id');
+router.get('/cart/buy/:id', UserController.payLotCart);
 
 router.get('/user/edit/profile/:id');
 router.post('/user/edit/profile/:id');

@@ -1,4 +1,4 @@
-<%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
+<%- include("headers/NavSisa", {title:"SINTETIK Cart"}) %>
 <div class="login-form">
   <h2 class="text-center">Cart</h2>
   <!-- UNPAID -->
@@ -9,7 +9,6 @@
       <th>Stock Name</th>
       <th>Lot Quantity</th> 
       <th>Price</th>
-      <!-- Total Investment = price*lot quantity -->
       <th>Total Investment</th>
       <th>Action</th>
     </tr>
@@ -40,8 +39,41 @@
         </th>
       </tr>
     <% }) %>
-  </table>
+  </table><br><br>
   <!-- transaction history buy -->
+  <h2 class="text-center">History Cart</h2>
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Stock Code</th>
+      <th>Stock Name</th>
+      <th>Lot Quantity</th> 
+      <th>Price</th>
+      <th>Total Investment</th>
+    </tr>
+  <!-- read model users and stocks -->
+  <!-- unpaid buy table -->
+    <% paidStock.forEach((e,i) =>{ %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td>
+          <%= e.Stock.code %>
+        </td>
+        <td>
+          <%= e.Stock.name %>
+        </td>
+        <td>
+          <%= e.totalInvestment %>
+        </td>
+        <td>
+          <%= e.Stock.money %>
+        </td>
+        <td>
+          <%= formatCurrency(e.totalInvestment * e.Stock.price) %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
 
 </div>
 

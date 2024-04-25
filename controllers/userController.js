@@ -1,17 +1,23 @@
 const {User, UserDetail, UserStock, Stock} = require("../models")
 const formatCurrency = require("../helper/formatCurrency")
+const {Op}=require('sequelize')
 class UserController {
     static async getUserHome(req, res){
         try {
-            let {filter} = req.query
+            let {search} = req.query
             let option = {order: [['name', 'asc']]}
-            if(filter){
-                option.where = {type: filter}
+            if(req.query.search){
+                option.where = {
+                    name:{
+                        [Op.iLike]: `%${req.query.search}%`
+                    }
+                }
             }
             let data = await Stock.findAll(option)
-            // res.send(data)
+        
+            
             res.render("Home", {data})
-            console.log({filter})
+            console.log({search})
         } catch (error) {
             res.send(error)
             console.log(error)
@@ -30,18 +36,30 @@ class UserController {
     static async getCart(req, res){
         try {
             let unpaidStock = await UserStock.findAll({    
-                include: [
-                    {
-                        model: Stock,
-                    }
-                ],
-                where: {UserId:req.session.user.id}
+                attributes: ['id', 'StockId', 'UserId', 'totalInvestment', 'paidLot'], 
+                include:
+                    {model: Stock,}
+                ,
+                where: {
+                    UserId: req.session.user.id,
+                    paidLot: false
+                }
             });
+            let paidStock = await UserStock.findAll({    
+                attributes: ['id', 'StockId', 'UserId', 'totalInvestment', 'paidLot'], 
+                include:
+                    {model: Stock,}
+                ,
+                where: {
+                    UserId: req.session.user.id,
+                    paidLot: true
+                }
+            }); 
 
-            unpaidStock.paidLot = true,
-            console.log(unpaidStock)
-            res.send({unpaidStock})
-            // res.render("Cart", {unpaidStock, formatCurrency: formatCurrency})
+            
+            console.log(unpaidStock, paidStock)
+            // res.send({unpaidStock})
+            res.render("Cart", {unpaidStock, paidStock, formatCurrency: formatCurrency})
         } catch (error) {
             res.send(error)
             console.log(error)
@@ -51,9 +69,10 @@ class UserController {
         let {id} = req.params
         try {
             console.log(req.session)
+            let stockData = await Stock.findAll()
             let data = await UserStock.create({UserId: req.session.user.id, StockId: +id, totalInvestment: 1})
-            let stockData = await Stock.findByPk(id)
-            stockData.decrement("Lot")
+            // let stockData = await Stock.findByPk(id)
+            // stockData.decrement("Lot")
             // res.send(req.params)
             res.redirect("/")
         } catch (error) {
@@ -85,12 +104,54 @@ class UserController {
         try {
             let {id} = req.params
             let {tI, StockId} = req.query
+            await UserStock.update({paidLot: true}, {where:{ id:id }})
+            await Stock.decrement({Lot: tI}, {where:{ id: StockId}})
+            res.redirect("/")
         } catch (error) {
             res.send(error)
             console.log(error)
         }
     }
     
+    static async getUserDetail(req, res) {
+        try {
+            let { id } = req.session
+            let user = await User.findAll({ 
+                where: { id },
+                include:{
+                  model: UserStock
+                }
+              });
+
+              const qr = `Si paling sobat Timothy`;
+
+              qrcode.toDataURL(qr, (err, url) => {
+                if (err) throw err;
+                res.render('user', { title: 'User Details', user, qrCodeURL: url });
+              });
+
+          res.render("UserDetail", { user });
+          
+        } catch (error) {
+          res.send(error);
+          console.log(error)
+        }
+      }
+      static async postUserDetail(req, res) {
+        try {
+          let { id } = req.params
+          let { name, birthDate, gender,phoneNumber} = req.body;
+          await UserProfile.update({ name, birthDate, gender,phoneNumber}, {
+            where: {
+              id: id
+            }
+          });
+          res.redirect(`/user/${id}`);
+        } catch (error) {
+          res.send(error)
+          console.log(error)
+        }
+      }
 }
 
 module.exports = UserController
