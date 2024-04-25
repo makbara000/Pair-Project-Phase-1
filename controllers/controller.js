@@ -15,7 +15,7 @@ class Controller {
     static async postRegisterForm(req, res){
         try {
             let {email, password, name, birthDate, gender, phoneNumber} = req.body
-            let data = await User.create({email, password, role:"User"})
+            let data = await User.create({email, password, role:"User"}) 
             let detail = await UserDetail.create({name, birthDate, gender, phoneNumber, UserId:data.id})
             res.redirect("./login")
         } catch (error) {
@@ -52,6 +52,14 @@ class Controller {
             res.redirect("/")
         } catch (error) {
             res.send(error.message)
+            console.log(error)
+        }
+    }
+    static async logOut(req, res){
+        req.session.destroy((err))
+        try {
+        } catch (error) {
+            res.send(error)
             console.log(error)
         }
     }
