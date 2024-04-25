@@ -1,27 +1,34 @@
 const logMiddleware = require('../middlewares/log.middleware');
+const authMiddleware = require('../middlewares/auth.middleware');
 const Controller = require('../controllers/controller');
 const UserController = require('../controllers/userController');
 const router = require('express').Router();
-const session = require('express-session')
+// const session = require('express-session');
+
+
+router.use(logMiddleware)
+// router.use(session({
+//     resave: false, // don't save session if unmodified
+//     saveUninitialized: true, // don't create session until something stored
+//     secret: 'keyboard cat'
+//   }));
 
 //|-----AUTHENTICATION------|
 //register
 router.get('/register', Controller.getRegisterForm);
 router.post('/register', Controller.postRegisterForm);
 
-//login
+// login
 router.get('/login', Controller.getLoginForm);
 router.post('/login', Controller.postLoginForm);
+// router.use(authMiddleware)
+router.use(authMiddleware)
 //logout
 router.get("/logout");
 //-----------
 
 
-
-
-
 //|-----MIDDLEWARE------| //session
-router.use(logMiddleware)
 
 
 //-----------

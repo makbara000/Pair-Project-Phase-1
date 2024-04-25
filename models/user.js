@@ -1,4 +1,5 @@
 'use strict';
+const { hashSync } = require('bcryptjs');
 const {
   Model
 } = require('sequelize');
@@ -9,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    
     static associate(models) {
       // define association here
     }
@@ -44,6 +46,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+  });
+  User.beforeCreate( (instance, options) => {
+    instance.password = hashSync(instance.password)
   });
   return User;
 };

@@ -1,0 +1,60 @@
+<%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
+<div class="login-form">
+  <h2 class="text-center">Home</h2>
+  <!-- UNPAID -->
+  <table>
+    <tr>
+      <th>No</th>
+      <th>Stock Code</th>
+      <th>Stock Name</th>
+      <th>Lot Quantity</th> 
+      <th>Price</th>
+      <!-- Total Investment = price*lot quantity -->
+      <th>Total Investment</th>
+      <th>Action</th>
+    </tr>
+  <!-- read model users and stocks -->
+  <!-- unpaid buy table -->
+    <% unpaidStock.forEach((e,i) =>{ %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td>
+          <%= e.code %>
+        </td>
+        <td>
+          <%= e.name %>
+        </td>
+        <td>
+          <%= e.stock %>
+        </td>
+        <td>
+          <%= e.price %>
+        </td>
+        <td>
+          <%= e.code %>
+        </td>
+        <td>
+          <%= e.type %>
+        </td>
+        <td>
+          <%= e.Lot %>
+        </td>
+        <th>
+          <a href="/cart/increase/:id"><button>+1 Lot</button></a>
+          <a href="/cart/decrease/:id"><button>-1 Lot</button></a>
+          <a href="/cart/buy/:id"><button>Pay</button></a>
+        </th>
+      </tr>
+    <% }) %>
+  </table>
+  <!-- transaction history buy -->
+
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
