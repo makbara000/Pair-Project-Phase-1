@@ -14,11 +14,46 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserDetail.init({
-    name: DataTypes.STRING,
-    birthDate: DataTypes.DATE,
-    gender: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    UserId: DataTypes.INTEGER //addedColumn
+    name:{
+      this: DataTypes.STRING,
+      validate:{
+        notEmpty:{
+          msg: "Name can't be empty"
+        }
+      }
+    }, 
+    birthDate:{
+      this: DataTypes.DATE,
+      validate:{
+        notEmpty:{
+          msg: "Birth date can't be empty"
+        }
+      }
+    }, 
+    gender:{
+      this: DataTypes.STRING,
+      validate:{
+        notEmpty:{
+          msg: "Gender can't be empty"
+        }
+      }
+    }, 
+    phoneNumber:{
+      this: DataTypes.STRING,
+      validate:{
+        notEmpty:{
+          msg: "Phone number can't be empty"
+        }
+      }
+    }, 
+    UserId:{
+      this: DataTypes.INTEGER, //addedColumn
+      validate:{
+        notEmpty:{
+          msg: "UserId can't can't be empty"
+        }
+      }
+    }, 
   }, {
     sequelize,
     modelName: 'UserDetail',
