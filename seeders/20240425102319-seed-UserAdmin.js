@@ -1,5 +1,7 @@
 'use strict';
 
+const { hashing } = require('../helper/password');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -13,8 +15,8 @@ module.exports = {
      * }], {});
     */
      await queryInterface.bulkInsert('Users', [{
-       email: 'admin@sintetik.com',
-       password: 123456,
+       email: 'admin3@sintetik.com',
+       password: hashing('123456'),
        role: "admin",
        createdAt: new Date(),
        updatedAt: new Date()
