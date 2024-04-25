@@ -15,10 +15,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   UserDetail.init({
     name: DataTypes.STRING,
-    age: DataTypes.INTEGER,
-    address: DataTypes.STRING,
-    ktp: DataTypes.STRING,
-    photo: DataTypes.STRING
+    birthDate: DataTypes.DATE,
+    gender: DataTypes.STRING,
+    phoneNumber: DataTypes.STRING,
+    UserId: DataTypes.INTEGER //addedColumn
   }, {
     sequelize,
     modelName: 'UserDetail',
