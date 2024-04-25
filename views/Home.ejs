@@ -1,7 +1,18 @@
 <%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
 <div class="login-form">
-  <h2 class="text-center">Home</h2>
-  <a href="/cart"><button>Go to cart</button></a><br><br>
+</form>
+<h2 class="text-center">Home</h2>
+<a href="/cart"><button>Go to cart</button></a><br><br>
+<form action="/">
+  <select name="filter" id="">
+      <option value="">All</option>
+      <option value="Finance">Finance</option>
+      <option value="Health">Health</option>
+      <option value="Retail">Retail</option>
+      <option value="Misc">Misc</option>
+    </select>
+    <button>submit</button><br><br>
+</form>
   <table>
     <tr>
       <th>No</th>
