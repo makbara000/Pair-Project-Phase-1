@@ -26,7 +26,7 @@ router.get("/logout");
 
 
 
-//|-----MIDDLEWARE------|
+//|-----MIDDLEWARE------| //session
 router.use(logMiddleware)
 //-----------
 
@@ -35,15 +35,15 @@ router.use(logMiddleware)
 
 //|--user:-investor------|
 router.get('/'); //user home, showStocklist
-router.get('/cart');
+router.get('/cart');//show stock to be paid table (can adjust amount) and paid Stock
 
+router.get('/addToCart/:id');
 router.get('/cart/increase/:id');
 router.get('/cart/decrease/:id');
 router.post('/cart/buy/:id');
 
 router.get('/user/edit/profile/:id');
 router.post('/user/edit/profile/:id');
-router.get('/addToCart/:id');
 //-----------
 
 
