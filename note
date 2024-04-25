@@ -1,16 +1,14 @@
-step bikin model/tabel (CMIIW)
-1. InvestmentCategories
-2. UserDetails
-3. Users
-4. Investments
-5. UserInvestments
-
+Commands:
 
 npx sequelize-cli model:create --name User --attributes email:string,password:string,role:string
 npx sequelize-cli model:generate --name UserDetail --attributes name:string,birthDate:date,gender:string,phoneNumber:string
 npx sequelize migration:create --name add-column-UserId-on-table-UserDetail
 npx sequelize-cli model:create --name Stock --attributes name:string,description:string,price:integer,code:string,type:string
 npx sequelize-cli model:create --name UserStock --attributes StockId:integer,UserId:integer,totalInvestment:integer,value:integer
+npx sequelize-cli seed:generate --name seed-stocks
+
+
+
 
 Stocks.type:
 -Finance, Health, Retail, Misc
