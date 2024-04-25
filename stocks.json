@@ -1,0 +1,61 @@
+[{
+    "name": "Oasis Petroleum Inc.",
+    "description": "Oil & Gas Production",
+    "price": 44448572,
+    "code": "OAS",
+    "type": "Retail"
+  }, {
+    "name": "8point3 Energy Partners LP",
+    "description": "Electric Utilities: Central",
+    "price": 46714752,
+    "code": "CAFD",
+    "type": "Health"
+  }, {
+    "name": "The AES Corporation",
+    "description": "n/a",
+    "price": 12146015,
+    "code": "AESC",
+    "type": "Retail"
+  }, {
+    "name": "Telefonica Brasil S.A.",
+    "description": "Telecommunications Equipment",
+    "price": 34696913,
+    "code": "VIV",
+    "type": "Misc"
+  }, {
+    "name": "Ashford Hospitality Prime, Inc.",
+    "description": "n/a",
+    "price": 87056853,
+    "code": "AHPB",
+    "type": "Misc"
+  }, {
+    "name": "Newmont Mining Corporation",
+    "description": "Precious Metals",
+    "price": 97912758,
+    "code": "NEM",
+    "type": "Misc"
+  }, {
+    "name": "ContraFect Corporation",
+    "description": "Major Pharmaceuticals",
+    "price": 40109523,
+    "code": "CFRX",
+    "type": "Misc"
+  }, {
+    "name": "Apache Corporation",
+    "description": "Oil & Gas Production",
+    "price": 45278909,
+    "code": "APA",
+    "type": "Misc"
+  }, {
+    "name": "Calamos Dynamic Convertible & Income Fund",
+    "description": "n/a",
+    "price": 65075156,
+    "code": "CCD",
+    "type": "Finance"
+  }, {
+    "name": "Silicon Motion Technology Corporation",
+    "description": "Semiconductors",
+    "price": 78880730,
+    "code": "SIMO",
+    "type": "Retail"
+  }]

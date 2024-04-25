@@ -11,3 +11,6 @@ npx sequelize-cli model:generate --name UserDetail --attributes name:string,birt
 npx sequelize migration:create --name add-column-UserId-on-table-UserDetail
 npx sequelize-cli model:create --name Stock --attributes name:string,description:string,price:integer,code:string,type:string
 npx sequelize-cli model:create --name UserStock --attributes StockId:integer,UserId:integer,totalInvestment:integer,value:integer
+
+Stocks.type:
+-Finance, Health, Retail, Misc
