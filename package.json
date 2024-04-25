@@ -23,8 +23,10 @@
   },
   "homepage": "https://github.com/makbara000/Pair-Project-Phase-1#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "pg": "^8.11.5",
     "sequelize": "^6.37.3"
   },

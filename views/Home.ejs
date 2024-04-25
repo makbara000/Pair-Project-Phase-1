@@ -31,7 +31,10 @@
           <%= e.type %>
         </td>
         <td>
-          <%= e.lot %>
+          <%= e.Lot %>
+        </td>
+        <td>
+          <a href="/addToCart/<%= e.id %>"><button>add to cart</button></a>
         </td>
       </tr>
     <% }) %>

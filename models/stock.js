@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    lot:{
+    Lot:{
       type: DataTypes.INTEGER,
       validate:{
         notEmpty:{

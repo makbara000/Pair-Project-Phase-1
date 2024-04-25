@@ -2,6 +2,7 @@ const logMiddleware = require('../middlewares/log.middleware');
 const Controller = require('../controllers/controller');
 const UserController = require('../controllers/userController');
 const router = require('express').Router();
+const session = require('express-session')
 
 //|-----AUTHENTICATION------|
 //register
