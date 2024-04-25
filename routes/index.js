@@ -1,23 +1,16 @@
 const logMiddleware = require('../middlewares/log.middleware');
-
+const Controller = require('../controllers/controller');
+const UserController = require('../controllers/userController');
 const router = require('express').Router();
 
 //|-----AUTHENTICATION------|
 //register
-router.get('/register', (req, res) => {
-  res.render('Register')
-});
-router.post('/register', (req, res) => {
-  res.render('Register')
-});
+router.get('/register', Controller.getRegisterForm);
+router.post('/register', Controller.postRegisterForm);
 
 //login
-router.get('/login', (req, res) => {
-  res.render('Login')
-});
-router.post('/login', (req, res) => {
-  res.render('Login')
-});
+router.get('/login', Controller.getLoginForm);
+router.post('/login', Controller.postLoginForm);
 //logout
 router.get("/logout");
 //-----------
@@ -28,13 +21,15 @@ router.get("/logout");
 
 //|-----MIDDLEWARE------| //session
 router.use(logMiddleware)
+
+
 //-----------
 
 
 
 
 //|--user:-investor------|
-router.get('/'); //user home, showStocklist
+router.get('/', UserController.getUserHome); //user home, showStocklist
 router.get('/cart');//show stock to be paid table (can adjust amount) and paid Stock
 
 router.get('/addToCart/:id');
@@ -47,10 +42,8 @@ router.post('/user/edit/profile/:id');
 //-----------
 
 
-
-
 //|--user:-admin--------|
-router.get('/admin');//adminPage
+router.get('/admin');//home adminPage
 router.get('/admin/addStock');//getFormAddStock
 router.post('/admin/addStock');//postFormAddStock
 router.get("/admin/editStock/:id");//getEdit;

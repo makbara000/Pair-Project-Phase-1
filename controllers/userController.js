@@ -1,8 +1,13 @@
 const {User, UserDetail, UserStock} = require("../models")
 
 class UserController {
-    static async login(req,res){
-        
+    static async getUserHome(req,res){
+        try {
+            res.render("Home")
+        } catch (error) {
+            res.send(error)
+            console.log(error)
+        }
     }
 }
 
