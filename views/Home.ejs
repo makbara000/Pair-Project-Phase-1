@@ -1,7 +1,41 @@
 <%- include("headers/NavSisa", {title:"SINTETIK login"}) %>
 <div class="login-form">
   <h2 class="text-center">Home</h2>
-  
+  <table>
+    <tr>
+      <th>Stock Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>code</th>
+      <th>Type</th>
+      <th>Lot Amount</th>
+      <th>
+        Action
+      </th>
+    </tr>
+    <% data.forEach((e) =>{ %>
+      <tr>
+        <td>
+          <%= e.name %>
+        </td>
+        <td>
+          <%= e.description %>
+        </td>
+        <td>
+          <%= e.price %>
+        </td>
+        <td>
+          <%= e.code %>
+        </td>
+        <td>
+          <%= e.type %>
+        </td>
+        <td>
+          <%= e.lot %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
 </div>
 
 <!-- Bootstrap JS and dependencies -->

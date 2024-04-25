@@ -54,6 +54,14 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
+    lot:{
+      type: DataTypes.INTEGER,
+      validate:{
+        notEmpty:{
+          msg: "Type can't be empty"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Stock',

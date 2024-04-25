@@ -6,7 +6,6 @@ module.exports = {
 
     await queryInterface.addColumn('Stocks', 'Lot', { 
       type: Sequelize.INTEGER,
-      allowNull: false,
       defaultValue: 100
     });
   },

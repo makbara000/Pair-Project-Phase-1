@@ -1,9 +1,11 @@
-const {User, UserDetail, UserStock} = require("../models")
+const {User, UserDetail, UserStock, Stock} = require("../models")
 
 class UserController {
     static async getUserHome(req,res){
         try {
-            res.render("Home")
+            let data = await Stock.findAll()
+            res.send(data)
+            // res.render("Home", {data})
         } catch (error) {
             res.send(error)
             console.log(error)
