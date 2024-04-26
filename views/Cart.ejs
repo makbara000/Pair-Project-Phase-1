@@ -1,4 +1,4 @@
-<%- include("headers/NavSisa", {title:"SINTETIK Cart"}) %>
+<%- include("headers/NavSisa", {title:"SINTETIK Cart"}, {id: id}) %>
 <div class="login-form">
   <h2 class="text-center">Cart</h2>
   <!-- UNPAID -->
@@ -24,18 +24,18 @@
           <%= e.Stock.name %>
         </td>
         <td>
-          <%= e.totalInvestment %>
+          <%= e.totalStock %>
         </td>
         <td>
           <%= e.Stock.money %>
         </td>
         <td>
-          <%= formatCurrency(e.totalInvestment * e.Stock.price) %>
+          <%= formatCurrency(e.totalInvestment * e.totalStock) %>
         </td>
         <th>
           <a href="/cart/increase/<%= e.id %>"><button>+1 Lot</button></a>
           <a href="/cart/decrease/<%= e.id %>"><button>-1 Lot</button></a>
-          <a href="/cart/buy/<%= e.id %>?tI=<%= e.totalInvestment %>&StockId=<%= e.Stock.id %>"><button>Pay</button></a>
+          <a href="/cart/buy/<%= e.id %>?tI=<%= e.totalStock %>&StockId=<%= e.Stock.id %>"><button>Pay</button></a>
         </th>
       </tr>
     <% }) %>
@@ -50,6 +50,7 @@
       <th>Lot Quantity</th> 
       <th>Price</th>
       <th>Total Investment</th>
+      <th>Value</th>
     </tr>
   <!-- read model users and stocks -->
   <!-- unpaid buy table -->
@@ -63,13 +64,16 @@
           <%= e.Stock.name %>
         </td>
         <td>
-          <%= e.totalInvestment %>
+          <%= e.totalStock %>
         </td>
         <td>
           <%= e.Stock.money %>
         </td>
         <td>
-          <%= formatCurrency(e.totalInvestment * e.Stock.price) %>
+          <%= formatCurrency(e.totalInvestment) %>
+        </td>
+        <td>
+          <%= formatCurrency(fluctuator(e.value))  %>
         </td>
       </tr>
     <% }) %>

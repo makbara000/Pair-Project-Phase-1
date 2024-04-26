@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 const formatCurrency = require('../helper/formatCurrency');
 const { generateStockCode } = require('../helper/randomStockCode');
@@ -16,6 +16,17 @@ module.exports = (sequelize, DataTypes) => {
     }
     get money(){
       return formatCurrency(this.price)
+    }
+    static searchStock(id, search){
+      let option = {order: [['name', 'asc']]}
+      if(search){
+          option.where = {
+              name:{
+                  [Op.iLike]: `%${search}%`
+              }
+          }
+      }
+      return Stock.findAll(option)
     }
   }
   Stock.init({

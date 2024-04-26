@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const fluctuator = require('../helper/fluctuator');
 module.exports = (sequelize, DataTypes) => {
   class UserStock extends Model {
     /**
@@ -20,10 +21,16 @@ module.exports = (sequelize, DataTypes) => {
     UserId: DataTypes.INTEGER,
     totalInvestment: DataTypes.INTEGER,
     value: DataTypes.INTEGER,
-    paidLot: DataTypes.BOOLEAN
+    paidLot: DataTypes.BOOLEAN,
+    totalStock: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'UserStock',
+    hooks:{
+      afterUpdate(instance, option){
+        fluctuator(instance.value)
+      }
+    }
   });
   return UserStock;
 };

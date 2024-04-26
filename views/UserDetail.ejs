@@ -1,9 +1,6 @@
 <%- include("headers/NavSisa", {title:"SINTETIK User Detail"}) %>
 <div class="login-form">
 </form>
-<h2 class="text-center">User Detail</h2>
-<a href="/cart"><button>Go to cart</button></a><br><br>
-
 <div class="container">
   <h2 style="text-align: center;" class="my-3">User Details</h2>
   <div>
@@ -13,11 +10,11 @@
             <div class="col-md-4">
             <div >
               <div >
-                <h5 > 
-                  <%= user[0].dataValues.UserDetail.name %>!
-                </h5>
+                <h3 > 
+                  Halo saya <%= user[0].name %>
+                </h3>
                 <p>
-                  cuan cuan cuan !
+                  Mari kita cuan cuan cuan !
                 </p>
                
               </div>
@@ -25,9 +22,10 @@
           </div>
         </div>
         <div>
+          <br><br>
           <h4>scan me now!</h4>
           <h6>for discount up to 50%</h6>
-          <img src="<%= qrCodeURL %>"  style="width: 300px;">
+          <img src="<%= qrCodeURL %>"  style="width: 300px; text-align: center;">
         </div>
         </div>
   </div>

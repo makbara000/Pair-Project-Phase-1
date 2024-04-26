@@ -6,13 +6,13 @@ class AdminController {
         try {
             // let { deleted } = req.query
             // let { id } = req.session
-    
+            let id = req.session.user.id
             let data = await Stock.findAll({
                 order: [["name"]],
             });
             
             // res.send(data)
-            res.render("Admin", {data});
+            res.render("Admin", {data, id});
 
             // let data = await Stock.findAll()
             // res.render("Admin", {data})
@@ -23,8 +23,9 @@ class AdminController {
     }
     static async getAddStockProduct(req, res){
         try {
+            let id = req.session.user.id
             let data = await Stock.findAll()
-            res.render("AdminAdd", {data})
+            res.render("AdminAdd", {data, id})
         } catch (error) {
             res.send(error)
             console.log(error)
@@ -49,9 +50,10 @@ class AdminController {
 
     static async getEditStockProduct(req, res){
         try {       
+            let UserId = req.session.user.id
             let {id} = req.params
             let data = await Stock.findByPk(id)
-            res.render("AdminEdit", {data, formatCurrency})
+            res.render("AdminEdit", {data, id, formatCurrency})
         } catch (error) {
             res.send(error)
             console.log(error)

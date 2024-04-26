@@ -47,8 +47,7 @@ router.get('/cart/increase/:id', UserController.increaseLotCart);
 router.get('/cart/decrease/:id', UserController.decreaseLotCart);
 router.get('/cart/buy/:id', UserController.payLotCart);
 
-router.get('/user/edit/profile/:id');
-router.post('/user/edit/profile/:id');
+router.get('/user/detail/:id', UserController.getUserDetail);
 //-----------
 
 router.use(adminMiddleware)
