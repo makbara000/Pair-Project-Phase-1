@@ -1,5 +1,5 @@
 'use strict';
-
+const nodemailer = require("nodemailer");
 const { hashSync } = require('bcryptjs');
 const {
   Model
@@ -51,9 +51,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    
   });
   User.beforeCreate( (instance, options) => {
     instance.password = hashSync(instance.password)
   });
+  // User.beforeCreate( (instance, options) => {
+  //   trasn
+  // });
   return User;
 };

@@ -129,10 +129,10 @@ class UserController {
                 UserId: id
             }});
             console.log({id,user})
-            // res.send(user)
-            const url ='https://www.youtube.com/'
             
-            qrcode.toDataURL('I am a pony!', function (err, url) {
+            const url ='https://github.com/Aitemaa/Friend-Feed-Pair-Project-Hacktiv8.git'
+            
+            qrcode.toDataURL('https://github.com/Aitemaa/Friend-Feed-Pair-Project-Hacktiv8.git', function (err, url) {
                 if (err) throw err;
                 console.log(url)
                 res.render('UserDetail',{id, user, qrCodeURL: url});
